@@ -1,7 +1,8 @@
-body {
+BODY {
   font-family: Montserrat, sans-serif;
   color: #000;
   background-color: #FFE266;
+  line-height: 2
 }
 
 .intro-blurb {
@@ -9,7 +10,10 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    text-align: center
+    text-align: center;
+    padding: 50px;
+    line-height: 2.5
+
 }
 
 .get-started {
