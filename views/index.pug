@@ -1,11 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  header.navbar
+    section.navbar-section
+      a(class='btn btn-link', href='/howitworks') How it works
+    section.navbar-centre
+    section.navbar-section
+      a(class='btn btn-link', href='/convinceme') Convince me
 
   .intro-blurb
-    h2 Referly rewards people who find the perfect candidate for a job
+    h2 Referly rewards people for finding perfect job candidates in their network.
   .get-started
+    p Get Started:
     form(method='POST' action='/signin')
-      input(type="image"  id="signin" src="/images/Sign-In-Large---Default.png" alt="Sign in with Linkedin")
+      input(type="image"  id="signin" src="/images/Sign-In-Large---Default.png" alt="Sign up with Linkedin")
