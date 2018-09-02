@@ -1,1 +1,7 @@
 config.js
+
+mode_modules
+
+package-lock.json
+
+*.log
