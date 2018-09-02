@@ -3,3 +3,9 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  .intro-blurb
+    h2 Referly rewards people who find the perfect candidate for a job
+  .get-started
+    form(method='POST' action='/signin')
+      input(type="image"  id="signin" src="/images/Sign-In-Large---Default.png" alt="Sign in with Linkedin")
