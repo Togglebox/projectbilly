@@ -18,8 +18,8 @@ passport.use(new LinkedInStrategy({
   // linkedin sends back the tokens and profile info
   function(token, tokenSecret, profile, done) {
 
-    console.log("+++++++++");
-    console.log(profile._json.positions.values);
+    //console.log("+++++++++");
+    //console.log(profile._json.positions.values);
 
     var searchQuery = {
       name: profile.displayName
