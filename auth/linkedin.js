@@ -9,13 +9,17 @@ var init = require('./init');
 
 
 passport.use(new LinkedInStrategy({
-  //changed 'consumerKey' to 'clientID' to get the server to start. But this will probably break the Linkedin authentication
+  //[RB] changed 'consumerKey' to 'clientID' to get the server to start.
     clientID: config.linkedin.clientID,
     clientSecret: config.linkedin.clientSecret,
-    callbackURL: config.linkedin.callbackURL
+    callbackURL: config.linkedin.callbackURL,
+    scope: ['r_emailaddress', 'r_basicprofile']
   },
   // linkedin sends back the tokens and profile info
   function(token, tokenSecret, profile, done) {
+
+    console.log("+++++++++");
+    console.log(profile._json.positions.values);
 
     var searchQuery = {
       name: profile.displayName
@@ -23,7 +27,16 @@ passport.use(new LinkedInStrategy({
 
     var updates = {
       name: profile.displayName,
-      someID: profile.id
+      someID: profile.id,
+      currentPositions: profile._json.positions.values
+
+
+  /* need to add:
+      email:
+      currentcompanyIDs: profile.positions.companyID
+      currenctcompanyName: profile.positions.companyName
+
+      what if the user has 2+ 'current positions'?  */
     };
 
     var options = {
