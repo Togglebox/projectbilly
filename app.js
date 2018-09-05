@@ -32,6 +32,19 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//user loggedIn validation
+
+function loggedIn(req, res, next) {
+    if (req.user) {
+          next();
+        }
+    else {
+        res.redirect('/');
+        }
+}
+
+
+
 //specify routers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

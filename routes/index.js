@@ -4,21 +4,22 @@ var passportLinkedIn = require('../auth/linkedin');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Referly' });
 });
 
 /* GET dashboard, only if logged in */
-
-router.get('/dashboard', function(req, res, next) {
-
-//is user loggedin? yes = next
-
-//if user has posted jobs, render dashboard.pug
+/* This code probably will not work - fit it after getting the views ready and some data in the Jobs collection
 
 
+router.get('/dashboard', loggedIn, function(req, res, next) {
+  var userCreatedJobs = db.jobs.count({"createdbyUser" = user._id);
+  if userCreatedJobs === 0 {
+    res.render('emptyDashboard', { title: 'Jobs Dashboard'})
+  };
+  else res.render('dashboard', { title: 'Jobs Dashboard'})
 
-  res.render('dashboard', { title: 'Dashboard'});
-});
+  });
+*/
 
 /* Sign in with Linkedin. */
 
